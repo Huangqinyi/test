@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <style type="text/css">
+        .test{
+            position: absolute;
+            left: 200px;
+        }
+        input{
+            width: 500px;
+            height: 70px;
+        }
+        .PageTail{
+            position:fixed; 
+            left:0px; 
+            bottom:0px; 
+            width:100%; 
+            height:40px;
+            z-index:9999;
+            background: -webkit-linear-gradient(left, #33FF66 , #00FFFF);
+            background: -o-linear-gradient(right, #33FF66 , #00FFFF);
+            background: -moz-linear-gradient(right, #33FF66 , #00FFFF);
+            background: linear-gradient(to right, #33FF66 , #00FFFF); 
+        }
+        .copyright{
+        	font-size: 17px;
+            position: absolute;
+            left: 575px;
+        }
+        button{
+        	width: 100px;
+            height: 70px;
+        }
+        p{
+        	font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+    <h1>键盘隐藏测试</h1>
+    <hr/>
+    <br/>
+    <br/>
+    <div class="test">
+        <input onclick="input()" id="input" autofocus="autofocus" type="text">
+        <button onclick="submit()" class="btn btn-success">
+            <p>提交</p>
+        </button>
+        <br/>
+        <p id="display"></p >
+        <br/>
+        <button onclick="empty()" class="btn btn-success">
+    	    <p>清空</p>
+        </button>
+    </div>
+    <div class="PageTail">
+        <div class="copyright">Copyright 2006.Ateam TECH INC.All rights reserved.
+        </div>
+    </div>   
+    <script type="text/javascript">
+        var ipt = document.getElementById("input");
+        function input(){
+            document.activeElement.blur();
+        }
+        function submit(){
+            document.getElementById("display").innerHTML += ipt.value + "<br/>";
+            ipt.value= null;
+            alert("提交成功");
+            ipt.focus();
+        }
+        function empty(){
+            document.getElementById("display").innerHTML = null;
+            alert("已清空");
+        }
+    </script> 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">  
+</body>
+</html>
